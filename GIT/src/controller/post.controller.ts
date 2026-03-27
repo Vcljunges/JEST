@@ -23,13 +23,17 @@ export class PostController {
 
     async deletePosts(req: Request, res: Response) {
         const idPost = Number(req.params.id)
-        const post = await postService.findByAuthor(idPost)
+        const post = await postService.findById(idPost)
+
+        if (!post) {
+            return res.status(404).json({ message: "Post não localizado" })
+        }
 
         if (post.authorId === req.user) {
             await postService.delete(idPost)
-            return res.status(204)
+            return res.status(204).send()
         } else {
-            return res.status(404).json({ message: "Post não localizado" })
+            return res.status(403).json({ message: "Não autorizado" })
         }
     }
 }

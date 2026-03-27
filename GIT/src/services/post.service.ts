@@ -9,6 +9,12 @@ export class PostService {
         })
     }  
 
+    async findById(id: number) {
+        return await prisma.post.findUnique({
+            where: { id }
+        })
+    }
+
     async create(data: { title: string; content?: string; authorId: number }) {
         console.log(data)
         return await prisma.post.create({ data })

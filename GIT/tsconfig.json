@@ -1,7 +1,7 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    "typeRoots": ["./src/@types"],
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     // File Layout
     // "rootDir": "./src",
     // "outDir": "./dist",

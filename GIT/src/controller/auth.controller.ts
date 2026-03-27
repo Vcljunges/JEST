@@ -12,7 +12,8 @@ export class AuthController {
             const dados = await authService.authenticate(jwtSecret, email, password)
 
             return res.status(200).json(dados)
-        } catch (err) {
+        } catch (error) {
+            const err = error as any;
             const status = err.status || 500
             return res.status(status).json({ error: err.message || "Erro interno" })
         }
