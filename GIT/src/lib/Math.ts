@@ -11,7 +11,10 @@ export class Math {
         return a - b;
     }
 
-    div(a: number, b: number){
-        return b === 0 ? false : a / b;
+    div(a: number, b: number) {
+        if (typeof a !== 'number' || typeof b !== 'number' || b === 0) {
+            return false;
+        }
+        return a / b;
     }
 }
