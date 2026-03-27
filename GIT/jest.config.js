@@ -1,9 +1,9 @@
 export default {
-  preset: "ts-jest/preset/default-esm",
+  preset: "ts-jest/presets/default-esm", // Preset específico para ESM
   testEnvironment: "node",
-  extentionsToTreatAsEsm: [".ts"],
+  extensionsToTreatAsEsm: [".ts"],
   moduleNameMapper: {
-    "⁽\\,{1,2}/.*)\\.js$": "$1",
+    "^(\\.{1,2}/.*)\\.js$": "$1", // Isso resolve o problema de importar .js em arquivos .ts
   },
   transform: {
     "^.+\\.tsx?$": [
