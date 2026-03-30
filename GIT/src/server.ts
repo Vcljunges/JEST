@@ -25,15 +25,6 @@ app.use("/admin", authMiddleware, (req, res) => {
     res.json({ status: "Bem-vindo à área administrativa!" })
 })
 
-async create(data: {name: string, email: string, password: string, role: string}) {
-    const existing = await this.findByEmail(data.email)
-    
-    if (existing) {
-        throw new Error("Email já cadastrado")
-    }
-    
-}
-
 app.listen(PORT, () => {
     console.log(`API rodando em http://localhost:${PORT}`)
 })

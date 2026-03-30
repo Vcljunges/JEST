@@ -34,5 +34,13 @@ describe("Testing user service", () => {
         expect(updated).toHaveProperty("id")
         expect(updated.email).toBe(email)
     })
-    
+
+    it("Should delete a user", async () => {
+        const user = await userService.findByEmail(email)
+        const deleted = await userService.delete(user!.id)
+
+        expect(deleted).toHaveProperty("id")
+        expect(deleted.email).toBe(email)
+    })
+
 })
