@@ -17,7 +17,7 @@ describe("Testing post service", () => {
 
         const user = await userService.create({
             name: "test",
-            email: "test@jest.com",
+            email: `test_post_${Date.now()}@jest.com`,
             password: "123456789",
             role: "DEFAULT"
         })
