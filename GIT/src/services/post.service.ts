@@ -20,6 +20,13 @@ export class PostService {
         return await prisma.post.create({ data })
     }
 
+    async update(id: number, data: { title?: string; content?: string }) {
+        return await prisma.post.update({
+            where: { id },
+            data
+        })
+    }
+
     async delete(id: number) {
         return await prisma.post.delete({
             where: { id },
